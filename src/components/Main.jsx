@@ -1,14 +1,13 @@
+import { useState } from "react";
+
 export default function Main() {
-    const ingredients = ['Oregano', 'Basil', 'Thyme', 'Parsley', 'Rosemary'];
+    const [ingredients, setIngredients] = useState(['Oregano', 'Basil', 'Thyme', 'Parsley', 'Rosemary']);
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log("Form Submitted");
         const formData = new FormData(event.currentTarget);
         const newIngredient = formData.get('ingredient');
-        console.log(newIngredient);
-        ingredients.push(newIngredient);
-        console.log(ingredients);
+        setIngredients((prevIngredients)=>[...prevIngredients, newIngredient]);
     }
 
     return(
