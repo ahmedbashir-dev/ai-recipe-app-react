@@ -97,12 +97,19 @@ main{
 
 .ingredients-section{
   display: flex;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
+  flex-direction: column;
   width:550px ;
   margin-top: 2rem;
   text-align: left;
 }
 
+
+.ingredients-section > h2{
+  margin: 0;
+  font-weight: 600;
+  font-size: 22px;
+}
 
 .cta-section{
   display: flex;

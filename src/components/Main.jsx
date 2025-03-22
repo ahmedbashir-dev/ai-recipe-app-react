@@ -1,12 +1,16 @@
 import { useState } from "react";
 
 export default function Main() {
-    const [ingredients, setIngredients] = useState(['Oregano', 'Basil', 'Thyme', 'Parsley', 'Rosemary']);
+    const [ingredients, setIngredients] = useState([]);
 
     function addIngredient(formData) {
         const newIngredient = formData.get('ingredient');
         setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
     }
+
+    const ingredientElements = ingredients?.map((ingredirent, index) => (
+        <li key={index}>{ingredirent}</li>
+    ))
 
     return (
         <main className="container">
@@ -19,21 +23,21 @@ export default function Main() {
                     id="ingredient" />
                 <button>Add Ingredient</button>
             </form>
-            <section className="ingredients-section">
+            {ingredientElements?.length > 0 && <section className="ingredients-section">
+                <h2>Ingredients on hand:</h2>
                 <ul className="ingredients">
-                    {ingredients?.map((ingredirent, index) => (
-                        <li key={index}>{ingredirent}</li>
-                    ))}
+                    {ingredientElements}
                 </ul>
-            </section>
-
-            <section className="cta-section">
-                <div className="cta-information">
-                    <h2>Ready for a recipe?</h2>
-                    <p>Generate a recipe from your list of ingredients.</p>
+                <div className="cta-section">
+                    <div className="cta-information">
+                        <h2>Ready for a recipe?</h2>
+                        <p>Generate a recipe from your list of ingredients.</p>
+                    </div>
+                    <button className="cta-button">Get a recipe</button>
                 </div>
-                <button className="cta-button">Get a recipe</button>
-            </section>
+            </section> }
+
+
         </main>
     )
 }
