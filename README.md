@@ -1,12 +1,52 @@
-# React + Vite
+# Scrimba Chef Claude
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Chef Claude** is an AI-powered recipe suggestion application that recommends recipes based on the ingredients you have. Built using [Vite](https://vitejs.dev/) and React, it offers a fast and modern development experience.
 
-Currently, two official plugins are available:
+## Features
+- **Ingredient Input:** Add ingredients you have on hand.
+- **AI Recipe Suggestions:** Receive recipe recommendations based on your ingredients.
+- **Interactive UI:** User-friendly interface for seamless interaction.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: HTML, CSS, JavaScript, React
+- **AI**: Hugging Face
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- Node.js
+- npm (Node Package Manager)
+
+### Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/ahmedbashir-dev/scrimba-chef-claude.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd scrimba-chef-claude
+    ```
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
+4. Set up your environment variables. Create a `.env` file in the root directory and add the following:
+    ```
+    VITE_HUGGING_FACE_API_KEY = <your-key>
+    ```
+
+### Usage
+
+1. Start the development server:
+    ```sh
+    npm run dev
+    ```
+2. Open your browser and navigate to `http://localhost:5175`.
+
+Project Link: [https://github.com/ahmedbashir-dev/scrimba-chef-claude](https://github.com/ahmedbashir-dev/scrimba-chef-claude)
