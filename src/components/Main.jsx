@@ -26,6 +26,14 @@ export default function Main() {
                     ))}
                 </ul>
             </section>
+
+            <section className="cta-section">
+                <div className="cta-information">
+                    <h2>Ready for a recipe?</h2>
+                    <p>Generate a recipe from your list of ingredients.</p>
+                </div>
+                <button className="cta-button">Get a recipe</button>
+            </section>
         </main>
     )
 }

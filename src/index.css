@@ -103,3 +103,38 @@ main{
   text-align: left;
 }
 
+
+.cta-section{
+  display: flex;
+  align-items: center;
+  background-color: var(--cta-background);
+  width: 494px;
+  max-width: 550px;
+  padding:1.75rem 1.75rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+.cta-information > h2{
+  margin: 0;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.cta-information > p{
+  margin-top: 7px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.cta-button{
+  background-color: var(--secondary);
+  color: var(--background-color);
+  padding: 9px 24px;
+  border-radius: 5px;
+  margin-left: auto;
+  font-weight: 500;
+  cursor: pointer;
+  border:none;
+}
