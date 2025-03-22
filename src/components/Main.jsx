@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
+import IngredientsList from "./IngredientsList";
 
 export default function Main() {
     const [ingredients, setIngredients] = useState([]);
@@ -15,9 +16,6 @@ export default function Main() {
         setRecipeShown(prevRecipeShown => !prevRecipeShown);
     }
 
-    const ingredientElements = ingredients?.map((ingredirent, index) => (
-        <li key={index}>{ingredirent}</li>
-    ));
 
     return (
         <main className="container">
@@ -30,21 +28,10 @@ export default function Main() {
                     id="ingredient" />
                 <button>Add Ingredient</button>
             </form>
-            {ingredients?.length > 0 && <section className="ingredients-section">
-                <h2>Ingredients on hand:</h2>
-                <ul className="ingredients">
-                    {ingredientElements}
-                </ul>
-                {ingredients?.length > 3 && <div className="cta-section">
-                    <div className="cta-information">
-                        <h2>Ready for a recipe?</h2>
-                        <p>Generate a recipe from your list of ingredients.</p>
-                    </div>
-                    <button onClick={getRecipe} className="cta-button">Get a recipe</button>
-                </div>}
-
-                {recipeShown && <ClaudeRecipe />}
-            </section>}
+            <section className="ingredients-section">
+            {ingredients?.length > 0 && <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />}
+            {recipeShown && <ClaudeRecipe />}
+            </section>
 
 
         </main>
