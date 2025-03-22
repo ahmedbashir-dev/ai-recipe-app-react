@@ -23,18 +23,18 @@ export default function Main() {
                     id="ingredient" />
                 <button>Add Ingredient</button>
             </form>
-            {ingredientElements?.length > 0 && <section className="ingredients-section">
+            {ingredients?.length > 0 && <section className="ingredients-section">
                 <h2>Ingredients on hand:</h2>
                 <ul className="ingredients">
                     {ingredientElements}
                 </ul>
-                <div className="cta-section">
+                {ingredients?.length > 3 && <div className="cta-section">
                     <div className="cta-information">
                         <h2>Ready for a recipe?</h2>
                         <p>Generate a recipe from your list of ingredients.</p>
                     </div>
                     <button className="cta-button">Get a recipe</button>
-                </div>
+                </div> }
             </section> }
 
 
