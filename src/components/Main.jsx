@@ -6,6 +6,7 @@ import { getRecipeFromMistral } from "../../ai";
 export default function Main() {
     const [ingredients, setIngredients] = useState([]);
     const [recipe, setRecipe] = useState("");
+    const [isRecipeLoading, setIsRecipeLoading] = useState(false);
 
 
     function addIngredient(formData) {
@@ -14,8 +15,10 @@ export default function Main() {
     }
 
     async function getRecipe(){
+        setIsRecipeLoading(true);
         const recipeMarkdown = await getRecipeFromMistral(ingredients);
         setRecipe(recipeMarkdown);
+        setIsRecipeLoading(false);
     }
 
 
@@ -32,7 +35,7 @@ export default function Main() {
             </form>
             <section className="ingredients-section">
             {ingredients?.length > 0 && <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />}
-            {recipe && <ClaudeRecipe recipe={recipe} />}
+            {isRecipeLoading ? <div className="loader"> </div> : recipe && <ClaudeRecipe recipe={recipe} />}
             </section>
 
 
