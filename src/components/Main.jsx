@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ClaudeRecipe from "./ClaudeRecipe";
 import IngredientsList from "./IngredientsList";
 import { getRecipeFromMistral } from "../../ai";
@@ -7,7 +7,7 @@ export default function Main() {
     const [ingredients, setIngredients] = useState([]);
     const [recipe, setRecipe] = useState("");
     const [isRecipeLoading, setIsRecipeLoading] = useState(false);
-
+    const recipeSection = useRef("");
 
     function addIngredient(formData) {
         const newIngredient = formData.get('ingredient');
@@ -20,6 +20,12 @@ export default function Main() {
         setRecipe(recipeMarkdown);
         setIsRecipeLoading(false);
     }
+
+    useEffect(function(){
+        if(recipeSection.current !== null && recipe !== ""){
+            recipeSection.current.scrollIntoView({behavior: "smooth"});
+        }
+    }, [recipe]);
 
 
     return (
@@ -34,7 +40,7 @@ export default function Main() {
                 <button>Add Ingredient</button>
             </form>
             <section className="ingredients-section">
-            {ingredients?.length > 0 && <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />}
+            {ingredients?.length > 0 && <IngredientsList ref={recipeSection} ingredients={ingredients} getRecipe={getRecipe} />}
             {isRecipeLoading ? <div className="loader"> </div> : recipe && <ClaudeRecipe recipe={recipe} />}
             </section>
 
